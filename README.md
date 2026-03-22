@@ -133,6 +133,19 @@ scenesolver-ai-service/models/
 
 ---
 
+📌 Where to place the model
+
+After downloading the model file:
+
+Go to:
+scenesolver-ai-service/
+If not already present, create a folder named:
+models
+Place your model file inside:
+scenesolver-ai-service/models/visual_clip_classifier.pt
+
+✔ This step is mandatory, otherwise the backend AI service will not work.
+
 ## 🌍 Deployment Notes
 
 * AI service can be deployed using platforms like Render, Railway, or AWS EC2.
