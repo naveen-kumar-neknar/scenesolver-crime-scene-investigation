@@ -1,177 +1,380 @@
-# 🧠 SceneSolver
+# 🧠 SceneSolver – AI-Powered Video Analysis and Scene Summarization
 
-> **SceneSolver** is an intelligent video analysis system designed to detect and summarize suspicious or criminal activities from visual data. It combines **CLIP, YOLOv8, BLIP, and BART** within a full-stack architecture built using **React, Node.js, Express, Flask, and MongoDB**.
+> An intelligent video analysis system designed to detect and summarize suspicious or criminal activities from visual data using **CLIP, YOLOv8, BLIP, and BART** within a full-stack architecture built using **React, Node.js, Express, Flask, and MongoDB**.
 
----
-
-## ✨ Overview
-
-SceneSolver analyzes uploaded video content using multiple AI models, where each model performs a specific task in the analysis pipeline.
-
-The system combines:
-
-- 🔍 **CLIP** for crime classification
-- 🎯 **YOLOv8** for evidence detection
-- 🧠 **BLIP** for scene understanding and caption generation
-- 📝 **BART** for scene summarization
-- 👤 **User authentication** for account management
-- 📂 **History tracking** for storing uploaded media and results
-- 🌐 **React** for the frontend
-- ⚙️ **Node.js + Express** for backend APIs
-- 🤖 **Flask** for AI services
-- 🗄️ **MongoDB** for application data
+![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python)
+![CLIP](https://img.shields.io/badge/AI-CLIP-purple)
+![YOLOv8](https://img.shields.io/badge/Object%20Detection-YOLOv8-green)
+![BLIP](https://img.shields.io/badge/Scene%20Understanding-BLIP-orange)
+![BART](https://img.shields.io/badge/Summarization-BART-blue)
+![Flask](https://img.shields.io/badge/AI%20Service-Flask-black?logo=flask)
+![Node.js](https://img.shields.io/badge/Backend-Node.js-green?logo=node.js)
+![Express](https://img.shields.io/badge/Backend-Express-black?logo=express)
+![React](https://img.shields.io/badge/Frontend-React-61DAFB?logo=react)
+![MongoDB](https://img.shields.io/badge/Database-MongoDB-green?logo=mongodb)
 
 ---
 
-## 🚀 Key Features
+## 📌 Table of Contents
 
-### 🔍 Crime Classification
+- [Project Overview](#-project-overview)
+- [Problem Statement](#-problem-statement)
+- [Objectives](#-objectives)
+- [Key Features](#-key-features)
+- [Use Cases](#-use-cases)
+- [Technology Stack](#-technology-stack)
+- [AI Models](#-ai-models)
+- [AI Processing Workflow](#-ai-processing-workflow)
+- [System Architecture](#-system-architecture)
+- [Project Structure](#-project-structure)
+- [Requirements](#-requirements)
+- [Installation and Setup](#-installation-and-setup)
+- [AI Service Setup](#-ai-service-setup)
+- [Backend Setup](#-backend-setup)
+- [Frontend Setup](#-frontend-setup)
+- [Model Setup](#-model-setup)
+- [Model File Location](#-model-file-location)
+- [Running the Application](#-running-the-application)
+- [Complete End-to-End Setup](#-complete-end-to-end-setup)
+- [Deployment Notes](#-deployment-notes)
+- [Security](#-security)
+- [Troubleshooting](#-troubleshooting)
+- [Future Scope](#-future-scope)
+- [Contribution](#-contribution)
+- [Author](#-author)
+- [License](#-license)
 
-SceneSolver uses a fine-tuned **CLIP model** to identify activities such as:
+---
+
+# 🚀 Project Overview
+
+SceneSolver is an intelligent video analysis system designed to detect and summarize suspicious or criminal activities from visual data.
+
+The project combines multiple advanced AI models, where each model performs a specific task in the video analysis pipeline.
+
+The system uses:
+
+```text
+CLIP
+ ↓
+Crime Classification
+
+YOLOv8
+ ↓
+Evidence Detection
+
+BLIP
+ ↓
+Scene Understanding
+
+BART
+ ↓
+Scene Summarization
+```
+
+These AI capabilities are integrated into a full-stack application consisting of:
+
+```text
+React Frontend
+       ↓
+Node.js + Express Backend
+       ↓
+Flask AI Service
+       ↓
+CLIP + YOLOv8 + BLIP + BART
+       ↓
+MongoDB
+```
+
+The application allows users to register, log in, upload media, analyze the content, and view the corresponding results through their personal dashboard.
+
+---
+
+# 🎯 Problem Statement
+
+Analyzing video footage containing suspicious or criminal activities can require identifying multiple types of information from the same visual data.
+
+SceneSolver addresses this by combining multiple AI models into a single analysis system.
+
+The system focuses on:
+
+- Identifying suspicious activities.
+- Detecting relevant evidence.
+- Understanding visual scenes.
+- Generating scene captions.
+- Summarizing the analyzed information.
+- Maintaining user-specific analysis history.
+
+---
+
+# 🎯 Objectives
+
+The main objectives of SceneSolver are:
+
+1. Detect suspicious or criminal activities from visual data.
+2. Classify activities such as robbery, fighting, and shoplifting.
+3. Detect relevant evidence such as weapons or violent actions.
+4. Generate meaningful captions from visual scenes.
+5. Summarize analyzed scene information.
+6. Provide user registration and login functionality.
+7. Provide a personal user dashboard.
+8. Store uploaded media and corresponding results for each user.
+9. Integrate multiple AI models into a single full-stack application.
+
+---
+
+# ✨ Key Features
+
+## 🔍 Crime Classification
+
+SceneSolver uses a **fine-tuned CLIP model** to identify activities such as:
 
 - Robbery
 - Fighting
 - Shoplifting
 
-### 🎯 Evidence Detection
+---
 
-**YOLOv8** is used to detect relevant objects and activities in video frames, such as:
+## 🎯 Evidence Detection
+
+The system uses **YOLOv8** to detect relevant objects and activities in video frames.
+
+Examples include:
 
 - Weapons
 - Violent actions
 
-### 🧠 Scene Understanding
+---
 
-**BLIP** generates meaningful captions from visual content to provide a better understanding of the analyzed scene.
+## 🧠 Scene Understanding
 
-### 📝 Scene Summarization
+**BLIP** generates meaningful captions from visual content.
 
-**BART** summarizes the generated scene information into a concise representation of the analyzed situation.
+This provides textual information describing the analyzed scene.
 
-### 👤 User Authentication
+---
 
-Users can:
+## 📝 Scene Summarization
+
+**BART** produces summaries from the generated scene information.
+
+This converts the analyzed information into a concise representation of the situation.
+
+---
+
+## 👤 User Authentication
+
+The application allows users to:
 
 - Register
 - Log in
 - Manage their personal dashboard
 
-### 📂 History Tracking
+---
 
-The system stores uploaded media and corresponding analysis results for each user.
+## 📂 History Tracking
 
-### 🌐 Full-Stack Architecture
+The system stores:
 
-The application is divided into three major services:
+- Uploaded media
+- Corresponding analysis results
+
+for each user.
+
+Users can access their previous results through their dashboard.
+
+---
+
+## 🌐 Full-Stack System
+
+SceneSolver uses a complete full-stack architecture:
 
 ```text
-React Frontend
-      ↓
-Node.js + Express Backend
-      ↓
-Flask AI Service
-      ↓
-CLIP + YOLOv8 + BLIP + BART
-      ↓
-MongoDB
+React
+  ↓
+Node.js + Express
+  ↓
+Flask
+  ↓
+AI Models
+```
+
+Flask handles AI services, Node.js manages backend APIs, and React powers the frontend UI.
+
+---
+
+# 👨‍💻 Use Cases
+
+## 🚨 Suspicious Activity Analysis
+
+Users can upload video containing suspicious activity and process it through the AI pipeline.
+
+## 🔍 Crime Classification
+
+The system can identify activities such as:
+
+- Robbery
+- Fighting
+- Shoplifting
+
+## 🎯 Evidence Detection
+
+YOLOv8 can detect relevant objects and activities such as:
+
+- Weapons
+- Violent actions
+
+## 🧠 Scene Understanding
+
+BLIP generates meaningful captions from visual content.
+
+## 📝 Scene Summarization
+
+BART summarizes the analyzed scene information.
+
+## 👤 Personal Dashboard
+
+Users can manage their account and access their uploaded media and corresponding results.
+
+---
+
+# 🧰 Technology Stack
+
+| Category | Technology |
+|---|---|
+| Frontend | React |
+| Backend | Node.js + Express |
+| AI Service | Flask |
+| Database | MongoDB |
+| Crime Classification | CLIP |
+| Evidence Detection | YOLOv8 |
+| Scene Understanding | BLIP |
+| Summarization | BART |
+| Programming | Python, JavaScript |
+| Version Control | Git / GitHub |
+
+---
+
+# 🤖 AI Models
+
+## 🔍 CLIP
+
+A fine-tuned **CLIP model** is used for crime classification.
+
+It identifies activities such as:
+
+```text
+Robbery
+Fighting
+Shoplifting
 ```
 
 ---
 
-## 🧠 AI Model Pipeline
+## 🎯 YOLOv8
 
-Each AI model is responsible for a specific stage of the analysis.
+YOLOv8 is used for evidence detection.
 
-### 🔍 CLIP — Crime Classification
-
-The fine-tuned CLIP model identifies the type of suspicious activity.
+It detects objects and activities such as:
 
 ```text
-Visual Content
-      ↓
-     CLIP
-      ↓
+Weapons
+Violent Actions
+```
+
+---
+
+## 🧠 BLIP
+
+BLIP is used for scene understanding and generates meaningful captions from visual content.
+
+---
+
+## 📝 BART
+
+BART is used to generate summaries from the analyzed scene information.
+
+---
+
+# 🔄 AI Processing Workflow
+
+The AI pipeline follows this sequence:
+
+```text
+User Uploads Video
+        ↓
+Visual Data Processing
+        ↓
+CLIP
+        ↓
 Crime Classification
-```
-
----
-
-### 🎯 YOLOv8 — Evidence Detection
-
-YOLOv8 analyzes video frames and detects relevant evidence such as weapons or violent actions.
-
-```text
-Video Frame
-      ↓
-    YOLOv8
-      ↓
+        ↓
+YOLOv8
+        ↓
 Evidence Detection
-```
-
----
-
-### 🧠 BLIP — Scene Understanding
-
-BLIP generates meaningful captions from the visual content.
-
-```text
-Visual Scene
-      ↓
-     BLIP
-      ↓
+        ↓
+BLIP
+        ↓
 Scene Caption
-```
-
----
-
-### 📝 BART — Scene Summarization
-
-BART summarizes the generated scene information.
-
-```text
-Scene Information
-      ↓
-     BART
-      ↓
+        ↓
+BART
+        ↓
 Scene Summary
+        ↓
+Final Results
 ```
 
 ---
 
-## 🔄 Complete Workflow
+# 🏗️ System Architecture
 
 ```text
-User
-  ↓
-Uploads Video
-  ↓
-React Frontend
-  ↓
-Node.js + Express Backend
-  ↓
-Flask AI Service
-  ↓
-┌──────────────┬──────────────┬──────────────┐
-│              │              │              │
-▼              ▼              ▼              ▼
-CLIP         YOLOv8          BLIP           BART
-│              │              │              │
-▼              ▼              ▼              ▼
-Crime        Evidence       Scene          Scene
-Class.       Detection      Caption        Summary
-│              │              │              │
-└──────────────┴──────────────┴──────────────┘
-                       ↓
-                    Results
-                       ↓
-                    MongoDB
-                       ↓
-                User Dashboard
+                         USER
+                           │
+                           ▼
+                 ┌─────────────────┐
+                 │ React Frontend  │
+                 └────────┬────────┘
+                          │
+                          ▼
+                 ┌─────────────────┐
+                 │ Node.js +       │
+                 │ Express Backend │
+                 └────────┬────────┘
+                          │
+                          ▼
+                 ┌─────────────────┐
+                 │  Flask AI       │
+                 │  Service        │
+                 └────────┬────────┘
+                          │
+            ┌─────────────┼─────────────┐
+            │             │             │
+            ▼             ▼             ▼
+          CLIP          YOLOv8         BLIP
+            │             │             │
+            ▼             ▼             ▼
+      Crime Type       Evidence      Captions
+                       Detection
+            │             │             │
+            └─────────────┼─────────────┘
+                          │
+                          ▼
+                         BART
+                          │
+                          ▼
+                   Scene Summary
+                          │
+                          ▼
+                       MongoDB
+                          │
+                          ▼
+                   User Dashboard
 ```
 
 ---
 
-## 📁 Project Structure
+# 📁 Project Structure
 
 ```text
 SceneSolver/
@@ -181,21 +384,43 @@ SceneSolver/
 ├── scenesolver-backend/        # Node.js + Express backend
 │
 ├── scenesolver-ai-service/     # Flask AI services
-│   ├── CLIP
-│   ├── YOLOv8
-│   ├── BLIP
-│   └── BART
 │
 ├── .gitignore
 │
 └── README.md
 ```
 
+The AI service contains:
+
+```text
+scenesolver-ai-service/
+│
+├── CLIP
+├── YOLOv8
+├── BLIP
+└── BART
+```
+
 ---
 
-# ⚙️ Local Setup
+# 💻 Requirements
 
-SceneSolver consists of three services that need to be configured separately:
+Before running SceneSolver, make sure the following are available:
+
+- Python
+- pip
+- Node.js
+- npm
+- MongoDB
+- Git
+
+The project also requires the trained model files described in the **Model Setup** section.
+
+---
+
+# ⚙️ Installation and Setup
+
+SceneSolver consists of three main services:
 
 ```text
 1. Flask AI Service
@@ -203,23 +428,23 @@ SceneSolver consists of three services that need to be configured separately:
 3. React Frontend
 ```
 
+Each service must be configured separately.
+
 ---
 
-# 1️⃣ AI Service — Flask
+# 🧠 AI Service Setup
 
-Navigate to the AI service directory:
+Navigate to:
 
 ```bash
 cd scenesolver-ai-service
 ```
 
-## Create a Virtual Environment
+Create a Python virtual environment:
 
 ```bash
 python -m venv venv
 ```
-
-## Activate the Virtual Environment
 
 ### Windows
 
@@ -233,42 +458,35 @@ venv\Scripts\activate
 source venv/bin/activate
 ```
 
-## Install Dependencies
+Install the required dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## Start the AI Service
+Run the Flask AI service:
 
 ```bash
 python ai_service.py
 ```
 
-The Flask service handles the AI functionality involving:
-
-- CLIP
-- YOLOv8
-- BLIP
-- BART
-
 ---
 
-# 2️⃣ Backend — Node.js + Express + MongoDB
+# ⚙️ Backend Setup
 
-Open another terminal and navigate to:
+Navigate to:
 
 ```bash
 cd scenesolver-backend
 ```
 
-## Install Dependencies
+Install dependencies:
 
 ```bash
 npm install
 ```
 
-## Configure Environment Variables
+## 🔐 Backend Environment Configuration
 
 Create a `.env` file inside:
 
@@ -284,15 +502,7 @@ JWT_SECRET=your_secret_key
 PORT=5000
 ```
 
-### Environment Variables
-
-| Variable | Description |
-|---|---|
-| `MONGO_URI` | MongoDB connection string |
-| `JWT_SECRET` | Secret key used for authentication |
-| `PORT` | Backend server port |
-
-## Start the Backend
+Start the backend:
 
 ```bash
 npm start
@@ -300,21 +510,19 @@ npm start
 
 ---
 
-# 3️⃣ Frontend — React
+# 🌐 Frontend Setup
 
-Open another terminal and navigate to:
+Navigate to:
 
 ```bash
 cd scenesolver-frontend
 ```
 
-## Install Dependencies
+Install dependencies:
 
 ```bash
 npm install
 ```
-
-## Configure Frontend Environment
 
 Create a `.env` file inside:
 
@@ -328,7 +536,7 @@ Add:
 REACT_APP_API_URL=http://localhost:5000
 ```
 
-## Start the Frontend
+Run the frontend:
 
 ```bash
 npm start
@@ -338,191 +546,60 @@ npm start
 
 # 📦 Model Setup
 
-Due to GitHub file size limitations, the trained model files are **not included in the repository**.
+Due to GitHub file size limitations, trained model files are **not included in the repository**.
 
-The required model resources can be prepared using the following notebooks.
+The model resources can be obtained from the following notebooks.
 
-## 🔗 CLIP Model Notebook
+### 🔗 CLIP Model Notebook
 
 https://colab.research.google.com/drive/1lILPaN9OPIpBcgEXuFvqAVQ3ZahVIfoE?usp=sharing
 
-## 🔗 YOLO Model Notebook
+### 🔗 YOLO Model Notebook
 
 https://colab.research.google.com/drive/1hMxwK7XjemhPK60jJMHKrw2LfFu4vREd?usp=sharing
 
 ---
 
-# 📌 Model Placement
+# 📌 Model File Location
 
-After obtaining the required model file, place it inside:
-
-```text
-scenesolver-ai-service/models/
-```
-
-If the `models` directory does not already exist, create it:
+After obtaining the model file, navigate to:
 
 ```text
 scenesolver-ai-service/
-└── models/
 ```
 
-The CLIP model should be placed at:
+If the `models` folder does not exist, create it:
+
+```text
+models/
+```
+
+Place the model file at:
 
 ```text
 scenesolver-ai-service/models/visual_clip_classifier.pt
 ```
 
-### Expected Model Path
+The final structure should be:
 
 ```text
-SceneSolver/
+scenesolver-ai-service/
 │
-└── scenesolver-ai-service/
-    │
-    └── models/
-        └── visual_clip_classifier.pt
+├── models/
+│   └── visual_clip_classifier.pt
+│
+└── ...
 ```
 
-> ⚠️ **Important:** This step is mandatory. Without the required model file, the Flask AI service will not work correctly.
+> ⚠️ **Important:** This step is mandatory. Without the required model file, the Flask AI service will not work.
 
 ---
 
-# 🗄️ MongoDB Configuration
+# 🚀 Running the Application
 
-SceneSolver uses MongoDB for application data.
+Three services need to run separately.
 
-Create the backend `.env` file:
-
-```text
-scenesolver-backend/.env
-```
-
-Configure:
-
-```env
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_secret_key
-PORT=5000
-```
-
-### 🔐 Security
-
-Never commit the `.env` file to GitHub.
-
-Do not expose:
-
-```text
-MongoDB credentials
-MongoDB connection strings
-JWT secrets
-Private keys
-Other sensitive configuration
-```
-
-Use the `.gitignore` file to prevent sensitive files from being committed.
-
----
-
-# 🌍 Deployment Notes
-
-The project can be deployed as separate services.
-
-### AI Service
-
-The Flask AI service can be deployed using platforms such as:
-
-- Render
-- Railway
-- AWS EC2
-
-### Frontend and Backend
-
-The frontend and backend can be hosted separately.
-
-Example:
-
-```text
-React Frontend
-      ↓
-    Vercel
-
-Node.js Backend
-      ↓
-    Render
-```
-
-### Database
-
-**MongoDB Atlas** can be used for cloud database storage.
-
-### Model Storage
-
-Because trained model files are not included in the GitHub repository, model files can be hosted externally using services such as:
-
-- Google Drive
-- AWS S3
-
----
-
-# 🔄 Example End-to-End Workflow
-
-```text
-1. User uploads a video containing suspicious activity
-                         ↓
-2. CLIP predicts the type of crime
-                         ↓
-3. YOLOv8 detects objects such as weapons or violent actions
-                         ↓
-4. BLIP generates scene captions
-                         ↓
-5. BART summarizes the situation
-                         ↓
-6. Analysis results are generated
-                         ↓
-7. Results are saved to the user's dashboard
-```
-
----
-
-# 🛠️ Service Communication
-
-```text
-                    React Frontend
-                          │
-                          ▼
-                Node.js + Express
-                     Backend
-                          │
-                          ▼
-                   Flask AI Service
-                          │
-          ┌───────────────┼───────────────┐
-          │               │               │
-          ▼               ▼               ▼
-        CLIP            YOLOv8           BLIP
-          │               │               │
-          ▼               ▼               ▼
-      Crime Type       Evidence         Caption
-                                     
-                          │
-                          ▼
-                         BART
-                          │
-                          ▼
-                     Summary
-                          │
-                          ▼
-                       MongoDB
-```
-
----
-
-# 📋 Quick Start
-
-If the project has already been configured, the basic startup sequence is:
-
-### Terminal 1 — AI Service
+## Terminal 1 — AI Service
 
 ```bash
 cd scenesolver-ai-service
@@ -530,7 +607,7 @@ venv\Scripts\activate
 python ai_service.py
 ```
 
-### Terminal 2 — Backend
+## Terminal 2 — Backend
 
 ```bash
 cd scenesolver-backend
@@ -538,7 +615,7 @@ npm install
 npm start
 ```
 
-### Terminal 3 — Frontend
+## Terminal 3 — Frontend
 
 ```bash
 cd scenesolver-frontend
@@ -546,26 +623,180 @@ npm install
 npm start
 ```
 
-Then open the frontend application in the browser.
+---
+
+# 🔄 Complete End-to-End Setup
+
+Once all three services are running:
+
+```text
+User
+  ↓
+Uploads Video
+  ↓
+React Frontend
+  ↓
+Node.js + Express Backend
+  ↓
+Flask AI Service
+  ↓
+CLIP
+  ↓
+Crime Classification
+  ↓
+YOLOv8
+  ↓
+Evidence Detection
+  ↓
+BLIP
+  ↓
+Scene Captions
+  ↓
+BART
+  ↓
+Scene Summary
+  ↓
+Results
+  ↓
+User Dashboard
+  ↓
+MongoDB
+```
 
 ---
 
-# 🚨 Important Setup Checklist
+# 🌍 Deployment Notes
 
-Before running the complete application, verify:
+The AI service can be deployed using platforms such as:
 
-- [ ] Python is installed
-- [ ] Node.js and npm are installed
-- [ ] MongoDB connection is configured
-- [ ] Backend `.env` file is created
-- [ ] Frontend `.env` file is created
-- [ ] Python dependencies are installed
-- [ ] Node.js dependencies are installed
-- [ ] Required model files are downloaded
-- [ ] `visual_clip_classifier.pt` is placed inside the `models` directory
-- [ ] Flask AI service is running
-- [ ] Node.js backend is running
-- [ ] React frontend is running
+- Render
+- Railway
+- AWS EC2
+
+The frontend and backend can be hosted separately.
+
+Example:
+
+```text
+Frontend → Vercel
+Backend  → Render
+```
+
+MongoDB Atlas can be used for cloud database storage.
+
+Since trained model files are not included in the repository, they can be hosted externally using:
+
+- Google Drive
+- AWS S3
+
+---
+
+# 🔐 Security
+
+Sensitive configuration must not be committed to GitHub.
+
+Never upload:
+
+```text
+.env
+MongoDB credentials
+MongoDB connection strings
+JWT secrets
+Private credentials
+```
+
+Keep backend secrets inside:
+
+```text
+scenesolver-backend/.env
+```
+
+Keep the frontend API configuration inside:
+
+```text
+scenesolver-frontend/.env
+```
+
+---
+
+# 🛠️ Troubleshooting
+
+## AI Service Not Working
+
+Verify:
+
+```text
+Python is installed
+Virtual environment is activated
+requirements.txt is installed
+Required model file exists
+```
+
+Run:
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## Backend Not Working
+
+Verify:
+
+```text
+Node.js is installed
+npm install was completed
+.env exists
+MONGO_URI is configured
+JWT_SECRET is configured
+```
+
+Then run:
+
+```bash
+npm start
+```
+
+---
+
+## Frontend Not Working
+
+Verify that dependencies are installed:
+
+```bash
+npm install
+```
+
+Check:
+
+```env
+REACT_APP_API_URL=http://localhost:5000
+```
+
+Then run:
+
+```bash
+npm start
+```
+
+---
+
+## Model Not Found
+
+Verify that the required CLIP model exists at:
+
+```text
+scenesolver-ai-service/models/visual_clip_classifier.pt
+```
+
+---
+
+# 🚧 Future Scope
+
+Based strictly on the provided project information, no specific future improvements were defined.
+
+Future development can be added to this section as the project evolves.
 
 ---
 
@@ -573,19 +804,22 @@ Before running the complete application, verify:
 
 Contributions are welcome.
 
-For major changes, please open an issue first to discuss the proposed changes before making significant modifications.
+For major changes, please open an issue first to discuss your ideas.
 
 ---
 
 # 👨‍💻 Author
 
-**Neknar Naveen Kumar**
+## Neknar Naveen Kumar
+
+Developed by **Neknar Naveen Kumar**.
 
 ---
 
-# 🔗 Connect With Me
+# 🔗 Connect
 
-**LinkedIn:**  
+### LinkedIn
+
 https://www.linkedin.com/in/neknar-naveen-kumar-2271a23b5
 
 ---
